@@ -1,11 +1,7 @@
 <?php
-
-function getFeed($feed_url)
-{
-
+function getFeed($feed_url) {
     $content = file_get_contents($feed_url);
     $x = new SimpleXmlElement($content);
-
     foreach ($x->channel->item as $entry) {
         echo "<div>";
         echo "<div class='col-md-4 col-sm-5 col-xs-10 table-bordered clickable' href='.$entry->guid '>";
@@ -14,18 +10,12 @@ function getFeed($feed_url)
         echo "</div>";
         echo "</div>";
     }
-
 }
-
-function getFeedTitle($feed_url)
-{
-
+function getFeedTitle($feed_url) {
     $content = file_get_contents($feed_url);
     $x = new SimpleXmlElement($content);
-
     foreach ($x->channel as $entry) {
         echo "$entry->title";
     }
 }
-
 ?>
