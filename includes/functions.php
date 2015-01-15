@@ -5,7 +5,7 @@ function getFeed($feed_url) {
     foreach ($x->channel->item as $entry) {
         echo "<div>";
         echo "<div class='col-md-4 col-sm-5 col-xs-10 table-bordered clickable' href='.$entry->guid '>";
-        echo "<li><a href='$entry->link' title='$entry->title'>" . $entry->title . "</a></li>" .
+        echo "<a href='$entry->link' title='$entry->title'>" . $entry->title . "</a>" .
             "<p>" . $entry->description . "<a href='$entry->guid'>Continue reading.</a>" . "<br>" . "Date published: " . $entry->pubDate;// . $entry->guid . "</p>";
         echo "</div>";
         echo "</div>";
@@ -18,4 +18,3 @@ function getFeedTitle($feed_url) {
         echo "$entry->title";
     }
 }
-?>
